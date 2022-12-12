@@ -25,15 +25,17 @@ type Frames = {
 };
 
 export class Player {
-  playerImage;
+  playerImage: HTMLImageElement;
   spriteWidth: number = 575;
   spriteHeight: number = 523;
-  gameFrame: number = 0;
   staggerFrames: number = 5;
   spriteAnimations: Map<AnimationState["name"], Frames>;
   playerState: States;
 
-  constructor(private ctx: CanvasRenderingContext2D | null) {
+  constructor(
+    private ctx: CanvasRenderingContext2D | null,
+    private gameFrame: number
+  ) {
     this.spriteAnimations = new Map();
     this.playerImage = new Image();
     this.playerImage.src = shadowDogImg;
