@@ -9,8 +9,7 @@ export class Layer {
     private ctx: CanvasRenderingContext2D | null,
     private imageSrc: string,
     private speedModifier: number,
-    private gameSpeed: number,
-    private gameFrame: number
+    private gameSpeed: number
   ) {
     this.x = 0;
     this.y = 0;
@@ -22,7 +21,8 @@ export class Layer {
 
   public update() {
     this.speed = this.gameSpeed * this.speedModifier;
-    this.x = (this.gameFrame * this.speed) % this.width;
+    if (this.x <= -this.width) this.x = 0;
+    this.x -= this.speed;
   }
 
   public draw() {

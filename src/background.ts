@@ -9,44 +9,33 @@ export class Background {
   layers: Layer[];
   constructor(
     private ctx: CanvasRenderingContext2D | null,
-    private gameSpeed: number,
-    private gameFrame: number
+    private gameSpeed: number
   ) {
     const layer1 = new Layer(
       this.ctx,
       backgroundLayer1Img,
       0.2,
-      this.gameSpeed,
-      this.gameFrame
+      this.gameSpeed
     );
     const layer2 = new Layer(
       this.ctx,
       backgroundLayer2Img,
       0.4,
-      this.gameSpeed,
-      this.gameFrame
+      this.gameSpeed
     );
     const layer3 = new Layer(
       this.ctx,
       backgroundLayer3Img,
       0.6,
-      this.gameSpeed,
-      this.gameFrame
+      this.gameSpeed
     );
     const layer4 = new Layer(
       this.ctx,
       backgroundLayer4Img,
       0.8,
-      this.gameSpeed,
-      this.gameFrame
+      this.gameSpeed
     );
-    const layer5 = new Layer(
-      this.ctx,
-      backgroundLayer5Img,
-      1,
-      this.gameSpeed,
-      this.gameFrame
-    );
+    const layer5 = new Layer(this.ctx, backgroundLayer5Img, 1, this.gameSpeed);
 
     this.layers = [layer1, layer2, layer3, layer4, layer5];
   }

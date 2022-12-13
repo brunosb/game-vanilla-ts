@@ -31,16 +31,15 @@ export class Player {
   staggerFrames: number = 5;
   spriteAnimations: Map<AnimationState["name"], Frames>;
   playerState: States;
+  gameFrame: number;
 
-  constructor(
-    private ctx: CanvasRenderingContext2D | null,
-    private gameFrame: number
-  ) {
+  constructor(private ctx: CanvasRenderingContext2D | null) {
     this.spriteAnimations = new Map();
     this.playerImage = new Image();
     this.playerImage.src = shadowDogImg;
     this.playerState = "idle";
     this.createSpriteAnimations();
+    this.gameFrame = 0;
   }
 
   public createSpriteAnimations() {
